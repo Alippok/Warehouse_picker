@@ -4,8 +4,6 @@ require_relative("warehouse_picker.rb")
 class TestWarehousePicker < MiniTest::Test
 
 def setup
-
-
  
   @my_hash = {
      row_a: "Pickles",
@@ -24,6 +22,11 @@ end
 def test_hash_to_array_index()
   result = hash_to_array_index(@my_hash,:row_a)
   assert_equal([:row_a, "Pickles"], result)
+end
+
+def test_return_items_index()
+  result = return_items_index(@my_hash,:row_a,"Pickles")
+  assert_equal(0, result)
 end
 
 
