@@ -11,6 +11,19 @@ def setup
      row_c: "Ham"
     
     }
+
+    @my_hash2 = {
+      bay_1: {
+        row_a: "Pickles",
+        row_b: "Cheese",
+        row_c: "Ham"
+      },
+      bay_2: {
+        row_a: "Brown bread",
+        row_b: "White bread",
+        row_c: "Sourdough"
+      }
+    }
 end
 
 def test_hash_to_array()
@@ -30,7 +43,10 @@ def test_return_items_index()
 end
 
 
-
+def test_nested_hash_to_array
+  result = nested_hash_to_array(@my_hash2)
+  assert_equal([[:row_a, "Pickles"], [:row_b, "Cheese"], [:row_c, "Ham"], [:row_a, "Brown bread"], [:row_b, "White bread"], [:row_c, "Sourdough"]], result)
+end
 
 
 

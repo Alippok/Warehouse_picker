@@ -28,3 +28,14 @@ return array.index(object)
   # return false
   
 end
+
+def nested_hash_to_array(hash)
+ array_1 = hash[:bay_1].to_a
+ array_2 = hash[:bay_2].to_a
+ return array_1 + array_2
+
+end
+
+
+
+
