@@ -48,10 +48,10 @@ def test_nested_hash_to_array
   assert_equal([[:row_a, "Pickles"], [:row_b, "Cheese"], [:row_c, "Ham"], [:row_a, "Brown bread"], [:row_b, "White bread"], [:row_c, "Sourdough"]], result)
 end
 
-
-
-
-
+def test_nested_hash_to_array_find_index
+  result = nested_hash_to_array_find_index(@my_hash2,:row_b, "Cheese")
+  assert_equal(1, result)
+end
 
 
 

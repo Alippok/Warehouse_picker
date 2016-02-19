@@ -33,9 +33,17 @@ def nested_hash_to_array(hash)
  array_1 = hash[:bay_1].to_a
  array_2 = hash[:bay_2].to_a
  return array_1 + array_2
-
 end
 
+def nested_hash_to_array_find_index(hash,key,value)
+  array_1 = hash[:bay_1].to_a
+  array_2 = hash[:bay_2].to_a
+
+ full_array = array_1 + array_2
+ object = key, value
+return full_array.index(object)
+  
+end
 
 
 
