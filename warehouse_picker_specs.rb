@@ -5,6 +5,8 @@ class TestWarehousePicker < MiniTest::Test
 
 def setup
 
+
+ 
   @my_hash = {
      row_a: "Pickles",
      row_b: "Cheese",
@@ -19,6 +21,10 @@ def test_hash_to_array()
   assert_equal(string, result)
 end
 
+def test_hash_to_array_index()
+  result = hash_to_array_index(@my_hash,:row_a)
+  assert_equal([:row_a, "Pickles"], result)
+end
 
 
 
