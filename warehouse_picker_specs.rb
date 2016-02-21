@@ -43,21 +43,25 @@ def test_return_items_index()
 end
 
 
-def test_nested_hash_to_array
+def test_nested_hash_to_array()
   result = nested_hash_to_array(@my_hash2)
   assert_equal([[:row_a, "Pickles"], [:row_b, "Cheese"], [:row_c, "Ham"], [:row_a, "Brown bread"], [:row_b, "White bread"], [:row_c, "Sourdough"]], result)
 end
 
-def test_nested_hash_to_array_find_index
+def test_nested_hash_to_array_find_index()
   result = nested_hash_to_array_find_index(@my_hash2,:row_b, "Cheese")
   assert_equal(1, result)
 end
 
-def test_return_diff_betw_indexes 
+def test_return_diff_betw_indexes()
   result = return_diff_betw_indexes(@my_hash2,:row_a, "Pickles",:row_c, "Sourdough")
   assert_equal(5, result)
 end
 
+def test_return_multiple_values()
+  result = return_multiple_values(@my_hash2,:bay_1,     :row_a, :row_b,:row_a, :row_c)
+  assert_equal(["pickles","cheese", "pickles", "and ", "ham"], result)
+end
 
 
 
