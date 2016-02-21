@@ -102,7 +102,8 @@ def return_multiple_values(hash,bay,*key)
   # end
 end
 
-def return_multiple_locations(hash,bay,*item)
+def return_multiple_locations_with_diff(hash,bay,*item)
+
   info_holder = []
   for information in item
     info_holder << hash[bay].key(information)
@@ -118,13 +119,39 @@ def return_multiple_locations(hash,bay,*item)
 
       if (info_holder.find_index(position) % 2 != 0)
         info_holder.push(", ")
+
         penult_array = info_holder.insert(second_last_position, "and ")
         penult_array.pop
-        return penult_array
+        penult_array.uniq!
+        final_array = penult_array
       end
     end
   end
-  return false
+
+  
+    array_1 = hash[:bay_1].to_a
+    array_2 = hash[:bay_2].to_a
+
+    full_array = array_1 + array_2
+     
+     first_key = hash[bay].key(item.first)
+     second_key = hash[bay].key(item.last)
+     object_1 = first_key, item.first
+     object_2 = second_key, item.last
+
+     for item_selection in full_array
+       if (item_selection == object_1) || (item_selection == object_2)#trying to make sure the code doesnt get run if there is a mistake in the input but can only check item_selection one at a time and it returns nil for the mistake and error occurs because nil cant be into a Fixnum
+        #break if object_1 == nil Trying to implement a test to filter results if they contain a nil
+         index_1 = full_array.index(object_1)
+         index_2 = full_array.index(object_2)
+         difference = index_2 - index_1
+         diff = difference
+       end
+     end
+    
+  
+
+  return "#{final_array}" + " #{diff} bays apart"
 end
 
 def return_item(hash,bay,row)

@@ -63,9 +63,9 @@ def test_return_multiple_values()
   assert_equal(["pickles","cheese", "pickles", "and ", "ham"], result)
 end
 
-def test_return_multiple_locations()
-  result = return_multiple_locations(@my_hash2,:bay_1, "Ham", "Cheese", "Ham")
-  assert_equal([:row_c,:row_b, "and ", :row_c], result)
+def test_return_multiple_locations_with_diff()
+  result = return_multiple_locations_with_diff(@my_hash2,:bay_1, "Pickles", "Cheese", "Ham")
+  assert_equal('[:row_a, :row_b, "and ", :row_c]' + " 2 bays apart", result)
 end
 
 def test_return_item()
