@@ -162,3 +162,4 @@ def return_location(hash,bay,item)
   return hash[bay].key(item)
 end
 
+#Just need to create the warehouse hash of all the items for homework and make sure that my functions can search that hash. Also, possibly add code where user asked for input and recieves location/position based on query
