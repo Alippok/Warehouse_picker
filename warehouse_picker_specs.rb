@@ -53,6 +53,10 @@ def test_nested_hash_to_array_find_index
   assert_equal(1, result)
 end
 
+def test_return_diff_betw_indexes 
+  result = return_diff_betw_indexes(@my_hash2,:row_a, "Pickles",:row_c, "Sourdough")
+  assert_equal(5, result)
+end
 
 
 

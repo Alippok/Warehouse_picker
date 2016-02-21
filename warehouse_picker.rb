@@ -46,4 +46,26 @@ return full_array.index(object)
 end
 
 
+#Now onto returning the difference between two indexes
+#Also, look into returning multiple indexes and multiple values
+
+def return_diff_betw_indexes(hash, key_1, value_1, key_2, value_2)
+  array_1 = hash[:bay_1].to_a
+  array_2 = hash[:bay_2].to_a
+
+  full_array = array_1 + array_2
+  object_1 = key_1 , value_1
+  object_2 = key_2, value_2
+
+  index_1 = full_array.index(object_1)
+  index_2 = full_array.index(object_2)
+
+  difference = index_2 - index_1
+  return difference
+  
+end
+
+
+
+
 
