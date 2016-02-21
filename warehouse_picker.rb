@@ -102,6 +102,31 @@ def return_multiple_values(hash,bay,*key)
   # end
 end
 
+def return_multiple_locations(hash,bay,*item)
+  info_holder = []
+  for information in item
+    info_holder << hash[bay].key(information)
+  end
+  
+  if info_holder.length == 1
+    return info_holder
+  elsif info_holder.length == 2 
+    return info_holder.insert(1, "and ")
+  else info_holder.length > 2
+    second_last_position = info_holder.length - 1
+    for position in info_holder[0..second_last_position]
+
+      if (info_holder.find_index(position) % 2 != 0)
+        info_holder.push(", ")
+        penult_array = info_holder.insert(second_last_position, "and ")
+        penult_array.pop
+        return penult_array
+      end
+    end
+  end
+  return false
+end
+
 def return_item(hash,bay,row)
  return hash[bay][row]
 end

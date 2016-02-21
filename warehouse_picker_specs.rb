@@ -63,6 +63,11 @@ def test_return_multiple_values()
   assert_equal(["pickles","cheese", "pickles", "and ", "ham"], result)
 end
 
+def test_return_multiple_locations()
+  result = return_multiple_locations(@my_hash2,:bay_1, "Ham", "Cheese", "Ham")
+  assert_equal([:row_c,:row_b, "and ", :row_c], result)
+end
+
 def test_return_item()
   result = return_item(@my_hash2,:bay_2,:row_c)
   assert_equal("Sourdough", result)
