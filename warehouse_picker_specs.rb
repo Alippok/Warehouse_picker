@@ -26,7 +26,7 @@ def setup
     }
 
     @warehouse = {
-      bay_a: {
+      area_a: {
         a10: "rubber band",
          a9: "glow stick",
          a8: "model car",
@@ -38,7 +38,7 @@ def setup
          a2: "stop sign",
          a1: "needle",
        },
-       bay_c: {
+       area_c: {
           c1: "rusty nail",
           c2: "drill press",
           c3: "chalk",
@@ -50,7 +50,7 @@ def setup
           c9: "shoe lace",
          c10: "leg warmers",
         },
-       bay_b: {
+       area_b: {
           b1: "tyre swing",
           b2: "sharpie",
           b3: "picture frame",
@@ -80,6 +80,18 @@ def test_hash_to_array_index()
   result = hash_to_array_index(@my_hash,:row_a)
   assert_equal([:row_a, "Pickles"], result)
 end
+
+def test_return_bay_index_main()
+  result = return_bay_index_main(@warehouse, "b2")
+  assert_equal(21, result)
+end
+
+def test_return_bay_distances()
+  result = return_bay_distances(@warehouse, "a4","c1","c8", "b9")
+  assert_equal(22, result)
+end
+
+
 
 def test_return_items_index()
   result = return_items_index(@my_hash,:row_a,"Pickles")
