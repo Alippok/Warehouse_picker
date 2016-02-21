@@ -102,5 +102,8 @@ def return_multiple_values(hash,bay,*key)
   # end
 end
 
+def return_item(hash, bay, row)
+ return hash[bay][row]
+end
 
 

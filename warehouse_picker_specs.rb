@@ -63,6 +63,10 @@ def test_return_multiple_values()
   assert_equal(["pickles","cheese", "pickles", "and ", "ham"], result)
 end
 
+def test_return_item()
+  result = return_item(@my_hash2,:bay_2,:row_c)
+  assert_equal("Sourdough", result)
+end
 
 
 
