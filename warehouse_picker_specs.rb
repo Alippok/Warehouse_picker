@@ -68,6 +68,10 @@ def test_return_item()
   assert_equal("Sourdough", result)
 end
 
+def test_return_location()
+  result = return_location(@my_hash2,:bay_2,"Sourdough")
+  assert_equal(:row_c, result)
+end
 
 
 
