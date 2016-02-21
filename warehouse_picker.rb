@@ -3,6 +3,14 @@ def hash_to_array(hash)#for identifying position and distance between
   
 end
 
+def hash_to_array_main(hash)
+  array_1 = hash[:bay_a].to_a
+  array_2 = hash[:bay_c].to_a
+  array_3 = hash[:bay_b].to_a
+  return full_array = array_1 + array_2 + array_3
+end
+
+
 def hash_to_array_index(hash,key)
   array =  hash.to_a
   # key_arg = key Dont need this
