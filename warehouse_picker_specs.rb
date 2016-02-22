@@ -71,26 +71,12 @@ def test_hash_to_array()
   assert_equal(string, result)
 end
 
-def test_hash_to_array_main()
-  result = hash_to_array_main(@warehouse)
-  assert_equal([[:a10, "rubber band"],[:a9,"glow stick"],[:a8, "model car"],[:a7, "bookmark"],[:a6, "shovel"],[:a5,"rubber duck"],[:a4, "hanger"],[:a3,"blouse"], [:a2, "stop sign"],[:a1, "needle"],[:c1, "rusty nail"],[:c2, "drill press"], [:c3, "chalk"],[:c4, "word search"],[:c5, "thermometer"],[:c6, "face wash"],[:c7, "paint brush"],[:c8, "candy wrapper"],[:c9, "shoe lace"],[:c10, "leg warmers"],[:b1, "tyre swing"],[:b2, "sharpie"], [:b3, "picture frame"],[:b4, "photo album"],[:b5, "nail filer"],[:b6, "tooth paste"],[:b7, "bath fizzers"],[:b8, "tissue box"],[:b9, "deodorant"],[:b10, "cookie jar"]],result )
-end
+
 
 def test_hash_to_array_index()
   result = hash_to_array_index(@my_hash,:row_a)
   assert_equal([:row_a, "Pickles"], result)
 end
-
-def test_return_bay_index_main()
-  result = return_bay_index_main(@warehouse, "b2")
-  assert_equal(21, result)
-end
-
-def test_return_bay_distances()
-  result = return_bay_distances(@warehouse, "a4","c1","c8", "b9")
-  assert_equal(22, result)
-end
-
 
 
 def test_return_items_index()
@@ -133,6 +119,32 @@ def test_return_location()
   result = return_location(@my_hash2,:bay_2,"Sourdough")
   assert_equal(:row_c, result)
 end
+
+#Tests for code on warehouse 
+
+def test_hash_to_array_main()
+  result = hash_to_array_main(@warehouse)
+  assert_equal([[:a10, "rubber band"],[:a9,"glow stick"],[:a8, "model car"],[:a7, "bookmark"],[:a6, "shovel"],[:a5,"rubber duck"],[:a4, "hanger"],[:a3,"blouse"], [:a2, "stop sign"],[:a1, "needle"],[:c1, "rusty nail"],[:c2, "drill press"], [:c3, "chalk"],[:c4, "word search"],[:c5, "thermometer"],[:c6, "face wash"],[:c7, "paint brush"],[:c8, "candy wrapper"],[:c9, "shoe lace"],[:c10, "leg warmers"],[:b1, "tyre swing"],[:b2, "sharpie"], [:b3, "picture frame"],[:b4, "photo album"],[:b5, "nail filer"],[:b6, "tooth paste"],[:b7, "bath fizzers"],[:b8, "tissue box"],[:b9, "deodorant"],[:b10, "cookie jar"]],result )
+end
+
+def test_return_bay_index_main()
+  result = return_bay_index_main(@warehouse, "b2")
+  assert_equal(21, result)
+end
+
+def test_return_bay_distances_main()
+  result = return_bay_distances_main(@warehouse, "a4","c1","c8", "b9")
+  assert_equal(22, result)
+end
+
+def test_return_bay_item_main()
+  result = return_bay_item_main(@warehouse,"a5","c8","b3")
+  assert_equal("rubber duck, candy wrapper, and picture frame", result)
+end
+
+
+
+
 
 
 
