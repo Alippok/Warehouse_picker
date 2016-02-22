@@ -267,7 +267,31 @@ array = []
     #   bay_item_3 = @warehouse[:area_b][bay_key]
     # end
   
-    return array.compact.uniq
+    
+
+    bay_1 = bay.first
+    bay_2 = bay.last
+    bay_1_main = bay_1.to_sym
+    bay_2_main = bay_2.to_sym
+    
+    array_1 = hash[:area_a].to_a
+    array_2 = hash[:area_c].to_a
+    array_3 = hash[:area_b].to_a
+    full_array = array_1 + array_2 + array_3
+
+    for bay in full_array
+     if bay[0] == bay_1_main
+      bay_item1 = bay[0,2]
+     end
+     if bay[0] == bay_2_main
+       bay_item2 = bay[0,2]
+     end     
+    end
+      index_1 = full_array.index(bay_item1)
+      index_2 = full_array.index(bay_item2)
+      difference = index_2 - index_1
+      return  array.compact.uniq.push(difference)
+
 end
 
     
