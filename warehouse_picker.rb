@@ -220,9 +220,9 @@ def return_bay_item_main(hash,*bay)
   for bays in bay
     bay_keys.push(bays.to_sym)
   end
+array = []
   if bay_keys.length == 3
   for bay_key in bay_keys
-
     if hash[:area_a].has_key?(bay_key)
       bay_item_a = hash[:area_a][bay_key]
     elsif hash[:area_c].has_key?(bay_key)
@@ -230,29 +230,35 @@ def return_bay_item_main(hash,*bay)
     else hash[:area_b].has_key?(bay_key)
       bay_item_b = hash[:area_b][bay_key]
     end
+    array.push(bay_item_a, bay_item_c, bay_item_b)
+    
   end
   elsif bay_keys.length == 2
-    if hash[:area_a].has_key?(bay_key)
-      bay_item_a = hash[:area_a][bay_key]
-    elsif hash[:area_c].has_key?(bay_key)
-      bay_item_c = hash[:area_c][bay_key]
-    else hash[:area_b].has_key?(bay_key)
-      bay_item_b = hash[:area_b][bay_key]
+    for bay_key in bay_keys
+      if hash[:area_a].has_key?(bay_key)
+        bay_item_a = hash[:area_a][bay_key]
+      elsif hash[:area_c].has_key?(bay_key)
+        bay_item_c = hash[:area_c][bay_key]
+      else hash[:area_b].has_key?(bay_key)
+        bay_item_b = hash[:area_b][bay_key]
+      end
+      array.push(bay_item_a, bay_item_c, bay_item_b)
+      
     end
   else bay_keys.length == 1 
-    if hash[:area_a].has_key?(bay_key)
-      bay_item_a = hash[:area_a][bay_key]
-    elsif hash[:area_c].has_key?(bay_key)
-      bay_item_c = hash[:area_c][bay_key]
-    else hash[:area_b].has_key?(bay_key)
-      bay_item_b = hash[:area_b][bay_key]
+    for bay_key in bay_keys
+      if hash[:area_a].has_key?(bay_key)
+        bay_item_a = hash[:area_a][bay_key]
+      elsif hash[:area_c].has_key?(bay_key)
+        bay_item_c = hash[:area_c][bay_key]
+      else hash[:area_b].has_key?(bay_key)
+        bay_item_b = hash[:area_b][bay_key]
+      end
+      array.push(bay_item_a, bay_item_c, bay_item_b)
+      
     end
   end
 
-
-
-
-return bay_item_a + ", " + bay_item_c + "," + " and " + bay_item_b
     # if bay_key == bay_key.id2name.include?("a")
     #   bay_item_1 = @warehouse[:area_a][bay_key]
     # elsif bay_key == bay_key.id2name.include?("c")
@@ -261,7 +267,7 @@ return bay_item_a + ", " + bay_item_c + "," + " and " + bay_item_b
     #   bay_item_3 = @warehouse[:area_b][bay_key]
     # end
   
-
+    return array.compact.uniq
 end
 
     

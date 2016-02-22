@@ -138,8 +138,8 @@ def test_return_bay_distances_main()
 end
 
 def test_return_bay_item_main()
-  result = return_bay_item_main(@warehouse,"a5","c8","b3")
-  assert_equal("rubber duck, candy wrapper, and picture frame", result)
+  result = return_bay_item_main(@warehouse,"a1","a5", "a10","c3", "c5")
+  assert_equal(["rubber duck", "candy wrapper", "picture frame"], result)
 end
 
 
